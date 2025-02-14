@@ -1,2 +1,12 @@
-# fortune-cookies
-A fully front-end brain-rot project that let you crack fortune cookies and receive fortune tellings
+# Fortune Cookie
+
+Super dummy project to test my CSS skills.
+
+Yes the React was overkill.
+
+## Getting Started
+
+```bash
+npm install
+npm start
+```

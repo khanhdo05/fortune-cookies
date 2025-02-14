@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: deeppink;
+    margin: 0;
+    font-family: "Jersey 15", serif;
+}
+
+/* Header (cookie container) */
+.App-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.alert {
+    color: floralwhite;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+
+/* Cookie Image */
+.cookie-image {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+    animation: bounce 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Cracked Cookie State */
+.cracked-cookie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adjusts the space between the halves */
+}
+
+/* Cracked Cookie Halves */
+.cracked-cookie img {
+    max-width: 45%;
+    max-height: 80%;
+    animation: bounce 0.5s ease-in-out;
+}
+
+/* Crumbs Container */
+.crumbs-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;  /* Allow clicks to pass through */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Individual Crumb Styling */
+.crumb {
+    position: fixed;
+    animation: crumbAnimation 2s ease-out forwards;
+}
+@keyframes bounce {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.1); }
+    50% { transform: scale(0.9); }
+    70% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+/* Crumbs Animation */
+@keyframes crumbAnimation {
+    0% {
+        transform: translate(0, 0);  /* Start from the center of the screen */
+        opacity: 1;
+    }
+    90% {
+        /* Move to bottom-right and bottom-left */
+        transform: translate(var(--x), var(--y));
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;  /* Make the crumbs disappear after the animation */
+    }
+}
+
+/* Message Styling */
+.message {
+    font-size: 1.5rem;
+    color: floralwhite;
+    cursor: pointer;
+    margin-top: -5rem;
+}
+
+/* Mobile First - Default styles for smaller screens */
+@media (max-width: 600px) {
+    /* Reduce image size and ensure the cookie remains centered */
+    .cookie-image {
+        max-width: 60%; /* Smaller images for mobile */
+        max-height: 60%;
+    }
+
+    .cracked-cookie img {
+        max-width: 40%; /* Reduce the size of the halves for small screens */
+        max-height: 50%;
+    }
+
+    .message {
+        max-width: 70%;
+        font-size: 2rem;
+    }
+}
+
+/* Tablet/Laptop Screens */
+@media (min-width: 601px) and (max-width: 1024px) {
+    /* Adjust sizes for tablets or medium-sized screens */
+    .cookie-image {
+        max-width: 40%; /* Slightly larger images */
+        max-height: 40%;
+    }
+
+    .cracked-cookie img {
+        max-width: 40%;
+        max-height: 50%;
+    }
+
+    .message {
+        max-width: 70%;
+        font-size: 2rem;
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1025px) {
+    /* For larger screens, images can be a bit bigger */
+    .cookie-image {
+        max-width: 50%; /* Larger images on big screens */
+        max-height: 50%;
+    }
+
+    .cracked-cookie img {
+        max-width: 30%;
+        max-height: 40%;
+    }
+
+    .message {
+        max-width: 70%;
+        font-size: 3rem; /* Larger text */
+    }
+}
