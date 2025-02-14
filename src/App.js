@@ -51,6 +51,11 @@ function App() {
     };
 
     const copyToClipboard = () => {
+        if (!navigator.clipboard) {
+            console.error('Clipboard API not supported.');
+            return;
+        }
+
         navigator.clipboard.writeText(fortune).then(() => {
             setAlert(true);
             setTimeout(() => {
